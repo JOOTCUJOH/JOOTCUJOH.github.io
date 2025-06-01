@@ -1,14 +1,41 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>goofy ahh website</title>
-  </head>
+<head>
+<title>url search test</title>
+</head>
+<body>
+<h1 id="name"> </h1>
+<h2 id="start"></h2>
+<h2 id="destination"></h2>
+<h2 id="flight"></h2>
 
-  <body>
-    <h1>What're you doing to me?</h1>
-    <img src = "https://media.tenor.com/BXiXX_huE9YAAAAC/vinland-saga-thorfinn.gif">
-    <p>Nah but im gonna add some stuff later. This is just some placeholder stuff for this website. I'm probably gonna add my other projects but
-    rn this is what I got rn. If you got any ideas tell me on discord. I don't know how I should make my sstuff look like so tell me. </p>
-  </body>
+<script> 
+var nameel=document.getElementById("name");
+var startel=document.getElementById("start");
+var destel=document.getElementById("destination");
+var flightel=document.getElementById("flight");
+const paramsString = window.location.search;
+const searchParams = new URLSearchParams(paramsString);
+var firstname=searchParams.get("first");
+var lastname=searchParams.get("last");
+var start=searchParams.get("start");
+var destination=searchParams.get("destination");
+ function generateRandomString(length) {
+     const characters = '123456789';
+     let result = '';
+     for (let i = 0; i < length; i++) {
+       const randomIndex = Math.floor(Math.random() * characters.length);
+       result += characters.charAt(randomIndex);
+     }
+     return result;
+   }
+window.onload=function(){
+    nameel.textContent="Hello, "+firstname+" "+lastname;
+    startel.textContent="From:"+start;
+    destel.textContent="To:"+destination;
+    flightel.textContent="Flight Name:NY"+generateRandomString(4);
+};
+</script>
+
+</body>
 </html>
